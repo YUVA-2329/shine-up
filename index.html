@@ -170,7 +170,7 @@
       0% { opacity: 0; transform: scale(0.85) rotate(-3deg); }
       100% { opacity: 1; transform: scale(1) rotate(0); }
     }
-
+    
     /* --------------------------------------
        UTILITY CLASSES
     -------------------------------------- */
@@ -700,8 +700,8 @@
         <!-- call pill with number 9900099867 + click to dial -->
         <div class="call-pill">
           <i class="fas fa-phone-alt"></i>
-          <span class="phone-number"></span>
-          <a href="tel:+919900099867" title="Call now"><i class="fas fa-phone"></i> Call</a>
+          <span class="phone-number">9900099867</span>
+          <a href="tel:+91999440077" title="Call now"><i class="fas fa-phone"></i> Call</a>
         </div>
         <!-- three dots mobile trigger -->
         <div class="mobile-menu-btn">
@@ -710,7 +710,286 @@
       </div>
     </div>
   </nav>
+  <style>/* ⭐ QUOTE BUTTON */
+.quote-wrapper{
+  position:relative;
+  display:inline-block;
+}
 
+.quote-btn{
+  padding:14px 30px;
+  border-radius:30px;
+  border:none;
+  cursor:pointer;
+  background:linear-gradient(135deg,#00f2fe,#4facfe);
+  color:white;
+  font-size:16px;
+  transition:0.3s;
+}
+
+.quote-btn:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 20px cyan,0 0 40px #00f2fe;
+}
+
+/* ⭐ Hover Preview */
+.quote-preview{
+  position:absolute;
+  bottom:120%;
+  left:50%;
+  transform:translateX(-50%);
+  background:rgba(0,0,0,0.85);
+  padding:15px;
+  border-radius:15px;
+  width:220px;
+  font-size:13px;
+  opacity:0;
+  visibility:hidden;
+  transition:0.3s;
+  box-shadow:0 0 20px cyan;
+}
+
+.quote-wrapper:hover .quote-preview{
+  opacity:1;
+  visibility:visible;
+}
+
+.quote-preview ul{
+  padding-left:15px;
+  text-align:left;
+}
+
+/* ⭐ POPUP */
+.quote-popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.75);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+.quote-box{
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(15px);
+  padding:30px;
+  width:90%;
+  max-width:400px;
+  border-radius:20px;
+  text-align:center;
+  animation:fadeIn 0.4s ease;
+}
+
+.step{display:none;}
+.step.active{display:block;}
+
+.quote-box input,
+.quote-box select{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border-radius:10px;
+  border:none;
+}
+
+.close-btn{
+  float:right;
+  cursor:pointer;
+}
+
+/* ⭐ Progress Bar */
+.progress-bar{
+  height:5px;
+  background:#333;
+  margin-bottom:15px;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+#progress{
+  height:5px;
+  width:25%;
+  background:cyan;
+  transition:0.3s;
+}
+
+/* ⭐ Mobile */
+@media(max-width:768px){
+  .quote-box{
+    width:95%;
+  }
+}
+/* Make wrapper behave like normal button */
+.quote-wrapper.same-line{
+  display:inline-block;
+  position:relative;
+  vertical-align:middle;
+}
+
+/* If buttons are inside flex container */
+.button-group{
+  display:flex;
+  gap:15px;
+  align-items:center;
+  justify-content:center; /* optional */
+}
+/* ⭐ AI Chatbox Container */
+.ai-chatbox{
+  position:fixed;
+  bottom:100px;
+  right:25px;
+  width:320px;
+  max-height:450px;
+  background:rgba(0,0,0,0.92);
+  backdrop-filter:blur(15px);
+  border-radius:20px;
+  display:none;
+  flex-direction:column;
+  overflow:hidden;
+  box-shadow:0 0 25px cyan;
+  z-index:9999;
+  animation:fadeIn 0.3s ease;
+}
+
+/* Header */
+.ai-header{
+  background:linear-gradient(135deg,#00f2fe,#4facfe);
+  padding:12px;
+  color:white;
+  font-weight:bold;
+  display:flex;
+  justify-content:space-between;
+}
+
+/* Body */
+.ai-body{
+  padding:15px;
+  overflow-y:auto;
+  font-size:14px;
+  color:white;
+}
+
+.ai-bot{
+  background:#222;
+  padding:10px;
+  border-radius:12px;
+  margin-bottom:10px;
+}
+
+/* Option Buttons */
+.ai-options button{
+  width:100%;
+  margin:5px 0;
+  padding:8px;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  background:linear-gradient(135deg,#00f2fe,#4facfe);
+  color:black;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.ai-options button:hover{
+  transform:scale(1.05);
+}</style>
+<script>
+function openAIChat(){
+  document.getElementById("aiChat").style.display="flex";
+}
+
+function closeAIChat(){
+  document.getElementById("aiChat").style.display="none";
+}
+
+/* SERVICES */
+function showServices(){
+  document.getElementById("aiBody").innerHTML += `
+    <div class="ai-bot">
+    🏠 Home Cleaning<br>
+    🪟 Window Cleaning<br>
+    🧼 Carpet Cleaning<br>
+    🏢 Office Cleaning<br>
+    ✨ Deep Cleaning
+    </div>`;
+}
+
+/* PRICING */
+function showPricing(){
+  document.getElementById("aiBody").innerHTML += `
+    <div class="ai-bot">
+    💰 Pricing:<br>
+    1 BHK – ₹999<br>
+    2 BHK – ₹1499<br>
+    3 BHK – ₹1999<br>
+    Villa – ₹2999
+    </div>`;
+}
+
+/* FEATURES */
+function showFeatures(){
+  document.getElementById("aiBody").innerHTML += `
+    <div class="ai-bot">
+    ✔ Eco-friendly chemicals<br>
+    ✔ Trained professionals<br>
+    ✔ Advanced equipment<br>
+    ✔ 100% satisfaction guarantee
+    </div>`;
+}
+
+/* TIMING */
+function showTiming(){
+  document.getElementById("aiBody").innerHTML += `
+    <div class="ai-bot">
+    ⏰ Available Slots:<br>
+    8 AM – 11 AM<br>
+    11 AM – 2 PM<br>
+    2 PM – 5 PM<br>
+    5 PM – 8 PM
+    </div>`;
+}
+
+/* AREAS */
+function showAreas(){
+  document.getElementById("aiBody").innerHTML += `
+    <div class="ai-bot">
+    📍 Service Areas:<br>
+    Whitefield<br>
+    Marathahalli<br>
+    HSR Layout<br>
+    Electronic City<br>
+    Koramangala
+    </div>`;
+}
+function openAIChat(){
+  alert("Button Working");
+}
+</script>
+
+<!-- ⭐ AI CHAT BOX -->
+<div class="ai-chatbox" id="aiChat">
+
+  <div class="ai-header">
+    <span>🧠 Cleaning Assistant</span>
+    <span onclick="closeAIChat()" style="cursor:pointer;">✖</span>
+  </div>
+
+  <div class="ai-body" id="aiBody">
+    <div class="ai-bot">
+      👋 Welcome! Choose an option below:
+    </div>
+
+    <div class="ai-options">
+      <button onclick="showServices()">Services</button>
+      <button onclick="showPricing()">Pricing</button>
+      <button onclick="showFeatures()">Features</button>
+      <button onclick="showTiming()">Timing Slots</button>
+      <button onclick="showAreas()">Service Areas</button>
+    </div>
+  </div>
+
+</div>
   <!-- MAIN CONTAINER -->
   <main class="main-container">
 
@@ -719,7 +998,7 @@
       <!-- left postcard -->
       <div class="hero-postcard animate-slide-left">
         <div class="postcard-icon"><i class="fas fa-sparkles"></i></div>
-        <h1>SHINE  <span class="gradient-text"><i>UP</i></span> Services</h1>
+<h1>SHINE  <span class="gradient-text"><i>UP</i></span> Services</h1>
         <p style="font-size:1.5rem; opacity:0.9; color:var(-primary-5);">Bringing Shine Back to Your Space</p>
         <div class="hero-stats-grid">
           <div class="stat-postcard"><span class="number">50+</span><span class="label">Happy Clients</span></div>
@@ -727,11 +1006,114 @@
           <div class="stat-postcard"><span class="number">100%</span><span class="label">Satisfaction</span></div>
         </div>
         <div style="margin-top:2.5rem; display:flex; gap:1.3rem;">
-          <a href="#contact" class="glow-btn" style="border:2px solid var(--gradient-1); border-radius:50px; padding:0.9rem 2.2rem; text-decoration:none; color:var(--primary-1); font-weight:600;">Get Quote</a>
-          <a href="#services" class="glow-btn" style="background:var(--gradient-1); border-radius:50px; padding:0.9rem 2.2rem; text-decoration:none; color:white; font-weight:600;">Our Services</a>
+           <div class="quote-wrapper">
+  <a href="javascript:void(0);" 
+     class="glow-btn"
+     onclick="openAIChat">
+      Get FREE Quote
+  </a>
+
+  <div class="quote-preview">
+    <h4>📋 We’ll Ask:</h4>
+    <ul>
+      <li>✔ Service Type</li>
+      <li>✔ Property Size</li>
+      <li>✔ Contact Details</li>
+      <li>✔ Instant Price</li>
+      <li>✔ WhatsApp Booking</li>
+    </ul>
+  </div>
+</div>
+          <div class="services-wrapper">
+
+  <a href="#services" class="glow-btn"
+     style="background:var(--gradient-1); 
+            border-radius:50px; 
+            padding:0.9rem 2.2rem; 
+            text-decoration:none; 
+            color:white; 
+            font-weight:600;">
+     <button</button>Our Services
+  </a>
+
+  <div class="services-popup">
+    
+  </div>
+
+</div>
         </div>
       </div>
+      <script>
+let currentStep=1;
 
+function openQuote(){
+  document.getElementById("quotePopup").style.display="flex";
+}
+
+function closeQuote(){
+  document.getElementById("quotePopup").style.display="none";
+  location.reload();
+}
+
+function nextStep(step){
+  document.getElementById("step"+step).classList.remove("active");
+  document.getElementById("step"+(step+1)).classList.add("active");
+  currentStep++;
+  document.getElementById("progress").style.width=(currentStep*25)+"%";
+}
+
+function calculatePrice(){
+  let size=document.getElementById("size").value;
+  let price=0;
+
+  if(size==="1 BHK") price=999;
+  if(size==="2 BHK") price=1499;
+  if(size==="3 BHK") price=1999;
+  if(size==="Villa") price=2999;
+
+  document.getElementById("priceResult").innerHTML="₹"+price;
+  nextStep(3);
+}
+
+function sendQuote(button){
+
+  let service=document.getElementById("service").value;
+  let size=document.getElementById("size").value;
+  let name=document.getElementById("name").value;
+  let phone=document.getElementById("phone").value;
+  let price=document.getElementById("priceResult").innerText;
+
+  if(name===""||phone===""){
+    alert("Please fill all details");
+    return;
+  }
+
+  button.innerHTML="⏳ Connecting...";
+  button.style.opacity="0.7";
+
+  let message=
+  "🌟 New Cleaning Quote Request\n\n"+
+  "Service: "+service+"\n"+
+  "Size: "+size+"\n"+
+  "Name: "+name+"\n"+
+  "Phone: "+phone+"\n"+
+  "Estimated Price: "+price;
+
+  let whatsappNumber="919876543210"; // 🔥 CHANGE THIS
+
+  let url="https://wa.me/"+whatsappNumber+"?text="+encodeURIComponent(message);
+
+  setTimeout(()=>{
+    window.open(url,"_blank");
+    button.innerHTML="✅ Redirecting...";
+    setTimeout(()=>{
+      closeQuote();
+    },1200);
+  },1000);
+}
+</script>
+  
+       
       <!-- RIGHT SIDE: LARGE RECTANGLE IMAGE SLIDER (full box) -->
       <div class="hero-slider-box">
         <div class="slider-track">
@@ -1004,5 +1386,6 @@ function sendToWhatsApp(event) {
 </body>
 
 </html>
+
 
 
