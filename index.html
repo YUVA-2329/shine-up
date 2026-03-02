@@ -262,6 +262,24 @@
       align-items: center;
       gap: 1.5rem;
     }
+    /* ===== MOBILE FIX ===== */
+@media (max-width: 768px) {
+
+  .button-container {
+    display: flex;
+    flex-direction: column;   /* stack vertically */
+    gap: 15px;                /* space between buttons */
+    align-items: center;
+  }
+
+  .button-container a,
+  .button-container button {
+    width: 90%;               /* full width button */
+    max-width: 320px;
+    text-align: center;
+  }
+
+}
 
     .call-pill {
       display: flex;
@@ -1386,6 +1404,7 @@ function sendToWhatsApp(event) {
 </body>
 
 </html>
+
 
 
 
