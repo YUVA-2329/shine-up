@@ -1,93 +1,29 @@
 <!DOCTYPE html>
-<head><style>/* ⭐ Dark gradient background */
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Empty Home Cleaning Service</title>
+
+<style>
+
+/* ⭐ Background */
 body{
   margin:0;
-  font-family: 'Poppins', sans-serif;
+  font-family:'Poppins', sans-serif;
   background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
   color:white;
-  overflow-x:hidden;
 }
 
-/* ⭐ Container fade animation */
+/* ⭐ Container */
 .container{
-  max-width:1000px;
+  max-width:1100px;
   margin:auto;
   padding:40px 20px;
   text-align:center;
-  animation: fadeIn 1.2s ease;
 }
 
-@keyframes fadeIn{
-  from{opacity:0; transform:translateY(30px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
-.subtitle{
-  color:#bbb;
-}
-
-/* ⭐ Neon glass cards */
-.price-card,
-.guide,
-.review{
-  background: rgba(259,260,257,0.05);
-  backdrop-filter: blur(10px);
-  border-radius:15px;
-  padding:20px;
-  margin:20px 0;
-  box-shadow:0 0 20px rgba(0,255,255,0.15);
-  transition:0.35s;
-}
-
-.price-card:hover,
-.guide:hover,
-.review:hover{
-  transform: translateY(-5px) scale(1.02);
-  box-shadow:0 0 25px cyan;
-}
-
-/* ⭐ Gallery neon zoom */
-.gallery{
-  display:flex;
-  gap:15px;
-  margin:30px 0;
-  justify-content:center;
-}
-
-.gallery img{
-  width:30%;
-  border-radius:12px;
-  transition:0.4s;
-  filter: brightness(0.85);
-}
-
-.gallery img:hover{
-  transform:scale(1.1);
-  filter: brightness(1);
-  box-shadow:0 0 25px cyan;
-}
-
-/* ⭐ Animated glowing button */
-button{
-  margin-top:25px;
-  padding:13px 30px;
-  border:none;
-  border-radius:30px;
-  background: linear-gradient(135deg,#00f2fe,#4facfe);
-  color:white;
-  font-size:16px;
-  cursor:pointer;
-  transition:0.35s;
-}
-
-button:hover{
-  transform:scale(1.1);
-  box-shadow:0 0 20px cyan, 0 0 40px #00f2fe;
-}
-
-/* ⭐ Floating slow glow */
 h1{
-  text-shadow:0 0 10px cyan;
+  text-shadow:0 0 15px cyan;
   animation: glow 3s infinite alternate;
 }
 
@@ -95,34 +31,63 @@ h1{
   from{text-shadow:0 0 10px cyan;}
   to{text-shadow:0 0 25px #00f2fe;}
 }
-/* ⭐ Pricing section */
+
+.subtitle{
+  color:#bbb;
+  margin-bottom:30px;
+}
+
+/* ⭐ Gallery */
+.gallery{
+  display:flex;
+  gap:15px;
+  margin:30px 0;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.gallery img{
+  width:300px;
+  max-width:100%;
+  border-radius:12px;
+  transition:0.4s;
+}
+
+.gallery img:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 25px cyan;
+}
+
+/* ⭐ Pricing */
 .pricing-section{
   margin-top:40px;
 }
 
-/* ⭐ Title glow */
 .price-title{
   font-size:28px;
-  margin-bottom:20px;
+  margin-bottom:10px;
   text-shadow:0 0 15px cyan;
 }
 
-/* ⭐ Grid layout */
-.price-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
+.note{
+  font-size:14px;
+  color:#bbb;
+  margin-bottom:20px;
 }
 
-/* ⭐ Price card */
+.price-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+
 .price-box{
   background:rgba(255,255,255,0.06);
   backdrop-filter:blur(12px);
   padding:25px;
   border-radius:18px;
-  transition:0.35s;
   border:1px solid rgba(0,255,255,0.2);
-  cursor:pointer;
+  transition:0.35s;
 }
 
 .price-box:hover{
@@ -130,186 +95,132 @@ h1{
   box-shadow:0 0 25px cyan;
 }
 
-/* ⭐ Price text */
 .price{
-  font-size:32px;
+  font-size:26px;
   font-weight:700;
   color:#00f2fe;
   margin:10px 0;
   text-shadow:0 0 12px cyan;
 }
 
-/* ⭐ Small text */
 .price-box span{
   color:#bbb;
   font-size:14px;
+  display:block;
+  margin-bottom:15px;
 }
 
-/* ⭐ Popular card highlight */
-.popular{
+/* ⭐ Buttons inside cards */
+.card-btn{
+  padding:8px 18px;
+  border:none;
+  border-radius:20px;
   background:linear-gradient(135deg,#00f2fe,#4facfe);
   color:white;
-  transform:scale(1.05);
-}
-
-.popular .price{
-  color:white;
-  text-shadow:0 0 10px white;
-}
-/* ⭐ Pricing section */
-.pricing-section{
-  margin-top:40px;
-}
-
-/* ⭐ Title glow */
-.price-title{
-  font-size:28px;
-  margin-bottom:20px;
-  text-shadow:0 0 15px cyan;
-}
-
-/* ⭐ Grid layout */
-.price-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
-}
-
-/* ⭐ Price card */
-.price-box{
-  background:rgba(255,255,255,0.06);
-  backdrop-filter:blur(12px);
-  padding:25px;
-  border-radius:18px;
-  transition:0.35s;
-  border:1px solid rgba(0,255,255,0.2);
   cursor:pointer;
-}
-
-.price-box:hover{
-  transform:translateY(-8px) scale(1.05);
-  box-shadow:0 0 25px cyan;
-}
-
-/* ⭐ Price text */
-.price{
-  font-size:32px;
-  font-weight:700;
-  color:#00f2fe;
-  margin:10px 0;
-  text-shadow:0 0 12px cyan;
-}
-
-/* ⭐ Small text */
-.price-box span{
-  color:#bbb;
   font-size:14px;
+  transition:0.3s;
 }
 
-/* ⭐ Popular card highlight */
-.popular{
-  background:linear-gradient(135deg,#00f2fe,#4facfe);
-  color:white;
-  transform:scale(1.05);
+.card-btn:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 15px cyan;
 }
 
-.popular .price{
+/* ⭐ Bottom Buttons */
+.main-btn{
+  margin-top:30px;
+  padding:12px 28px;
+  border:none;
+  border-radius:30px;
+  background: linear-gradient(135deg,#00f2fe,#4facfe);
   color:white;
-  text-shadow:0 0 10px white;
-}</style></head>
- 
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.main-btn:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 20px cyan;
+}
+
+</style>
+</head>
+
 <body>
 
 <div class="container">
 
-  <h1>🏠 EMPTY Home Cleaning Service</h1>
-  <p class="subtitle">Professional deep cleaning for a healthy home</p>
+<h1>🏠 Empty Home Cleaning Service</h1>
+<p class="subtitle">Professional deep cleaning for a healthy & fresh home</p>
 
-  <!-- ⭐ Photo section -->
-  <div class="gallery">
-  
-    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952">
-    
-    <img src="https://images.unsplash.com/photo-1584622781564-1d987f7333c1">
-     <img src="https://share.google/fuXZQLLSwxDw9wzs6">
-  </div>
-
-  <!-- ⭐ Price section -->
- <div class="pricing-section">
-
-  <h2 class="price-title">💎 Premium Pricing</h2>
-
-  <div class="price-grid">
-
-    <div class="price-box">
-      <h3>1 BHK</h3>
-      <p class="price">₹2999-3499</p>
-      <span>Deep cleaning</span>
-    </div>
-
-    <div class="price-box popular">
-      <h3>2 BHK</h3>
-      <p class="price">₹3599-4599</p>
-      <span>Most booked ⭐</span>
-    </div>
-
-    <div class="price-box">
-      <h3>3 BHK</h3>
-      <p class="price">₹4599-5599</p>
-      <span>Full house cleaning</span>
-    </div>
-
-
-  </div>
-
+<!-- ⭐ Gallery -->
+<div class="gallery">
+  <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952">
+  <img src="https://images.unsplash.com/photo-1584622781564-1d987f7333c1">
+  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
 </div>
-  <!-- ⭐ Guidance -->
-  <div class="guide">
-    <h2>📋 Service Guidance</h2>
-    <p>
-      Our team uses eco-friendly chemicals and advanced machines.
-      Please ensure water and electricity availability before service.
-      Cleaning duration ranges from 2–5 hours depending on house size.
-    </p>
-     <ul>
-    <li>✔ Please ensure availability of water and electricity during the service.</li>
-    <li>✔ Remove fragile and valuable items before the cleaning process begins.</li>
-    <li>✔ The cleaning duration typically ranges from 2–5 hours depending on home size.</li>
-    <li>✔ Our professionals bring all necessary tools and cleaning solutions.</li>
-    <li>We recommend residents to be present for inspection after completion.</li>
-  </ul>
-  </div>
 
-  <!-- ⭐ Reviews -->
-  <div class="reviews">
-    <h2>⭐ Customer Reviews</h2>
+<!-- ⭐ Pricing -->
+<div class="pricing-section">
 
-    <div class="review">
-      <h4>Rahul ⭐⭐⭐⭐⭐</h4>
-      <p>Excellent deep cleaning. Very professional team.</p>
-    </div>
+<h2 class="price-title">💎 Empty House Cleaning Pricing</h2>
+<p class="note">*Final pricing may vary depending on house size, condition, and service requirements.</p>
 
-    <div class="review">
-      <h4>Anjali ⭐⭐⭐⭐</h4>
-      <p>Bathroom cleaning was amazing. Worth the price.</p>
-    </div>
+<div class="price-grid">
 
-    <div class="review">
-      <h4>Kiran ⭐⭐⭐⭐⭐</h4>
-      <p>House looks brand new after service.</p>
-    </div>
-  </div>
+<div class="price-box">
+  <h3>1 BHK</h3>
+  <p class="price">Starts from ₹2,800</p>
+  <span>Complete deep cleaning</span>
+  <button class="card-btn">Book Now</button>
+</div>
 
-  <button onclick="location.href='index.html'">⬅ Back</button>
+<div class="price-box">
+  <h3>2 BHK</h3>
+  <p class="price">Starts from ₹3,800</p>
+  <span>Full house sanitization</span>
+  <button class="card-btn">Book Now</button>
+</div>
+
+<div class="price-box">
+  <h3>3 BHK</h3>
+  <p class="price">Starts from ₹5,000</p>
+  <span>All rooms + kitchen + bathrooms</span>
+  <button class="card-btn">Book Now</button>
+</div>
+
+<div class="price-box">
+  <h3>4+ BHK</h3>
+  <p class="price">Starts from ₹6,000+</p>
+  <span>Large property premium cleaning</span>
+  <button class="card-btn">Book Now</button>
+</div>
 
 </div>
 
-  
+</div>
 
-  
+<!-- ⭐ Guidance -->
+<div class="guide">
+<h2>📋 Service Guidance</h2>
+<ul>
+<li>✔ Ensure availability of water & electricity</li>
+<li>✔ Remove fragile items before service</li>
+<li>✔ Duration: 2–5 hours depending on size</li>
+<li>✔ Eco-friendly chemicals used</li>
+<li>✔ Final inspection after completion</li>
+</ul>
+</div>
 
-    
+<!-- ⭐ Contact Buttons -->
+<button class="main-btn">📞 Call Now</button>
+<button class="main-btn">💬 WhatsApp</button>
+<br>
+<button class="main-btn" onclick="location.href='index.html'">⬅ Back</button>
+
+</div>
 
 </body>
-
 </html>
