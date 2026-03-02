@@ -1,6 +1,11 @@
 <!DOCTYPE html>
-<head><style>
-/* (your full CSS remains SAME — no changes needed) */
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carpet Cleaning Service</title>
+
+<style>
+
 body{
   margin:0;
   font-family: 'Poppins', sans-serif;
@@ -9,8 +14,9 @@ body{
   overflow-x:hidden;
 }
 
+/* Container */
 .container{
-  max-width:1000px;
+  max-width:1100px;
   margin:auto;
   padding:40px 20px;
   text-align:center;
@@ -22,10 +28,11 @@ body{
   to{opacity:1; transform:translateY(0);}
 }
 
-.subtitle{ color:#bbb; }
+.subtitle{ color:#bbb; margin-bottom:20px; }
 
+/* Cards */
 .price-card,.guide,.review{
-  background: rgba(259,260,257,0.05);
+  background: rgba(255,255,255,0.06);
   backdrop-filter: blur(10px);
   border-radius:15px;
   padding:20px;
@@ -39,28 +46,108 @@ body{
   box-shadow:0 0 25px cyan;
 }
 
+/* Gallery */
 .gallery{
   display:flex;
   gap:15px;
   margin:30px 0;
   justify-content:center;
+  flex-wrap:wrap;
 }
 
 .gallery img{
-  width:30%;
+  width:300px;
+  max-width:100%;
   border-radius:12px;
   transition:0.4s;
   filter: brightness(0.85);
 }
 
 .gallery img:hover{
-  transform:scale(1.1);
+  transform:scale(1.05);
   filter: brightness(1);
   box-shadow:0 0 25px cyan;
 }
 
+/* Pricing Section */
+.pricing-section{ margin-top:40px; }
+
+.price-title{
+  font-size:28px;
+  margin-bottom:20px;
+  text-shadow:0 0 15px cyan;
+}
+
+.price-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+
+.price-box{
+  position:relative;
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(12px);
+  padding:25px;
+  border-radius:18px;
+  transition:0.35s;
+  border:1px solid rgba(0,255,255,0.2);
+  cursor:pointer;
+}
+
+.price-box:hover{
+  transform:translateY(-8px) scale(1.05);
+  box-shadow:0 0 25px cyan;
+}
+
+.price{
+  font-size:30px;
+  font-weight:700;
+  color:#00f2fe;
+  margin:10px 0;
+  text-shadow:0 0 12px cyan;
+}
+
+.price small{
+  font-size:14px;
+  display:block;
+  color:#bbb;
+  margin-top:5px;
+}
+
+.price-box span{
+  color:#bbb;
+  font-size:14px;
+}
+
+/* Popular Tag */
+.popular-badge{
+  position:absolute;
+  top:-12px;
+  right:-12px;
+  background:linear-gradient(135deg,#ff512f,#dd2476);
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:bold;
+  box-shadow:0 0 15px #ff4d6d;
+}
+
+/* Guide */
+.guide ul{
+  text-align:left;
+  max-width:600px;
+  margin:auto;
+}
+
+/* Reviews */
+.review h4{
+  margin-bottom:5px;
+}
+
+/* Button */
 button{
-  margin-top:25px;
+  margin-top:30px;
   padding:13px 30px;
   border:none;
   border-radius:30px;
@@ -86,139 +173,87 @@ h1{
   to{text-shadow:0 0 25px #00f2fe;}
 }
 
-.pricing-section{ margin-top:40px; }
-
-.price-title{
-  font-size:28px;
-  margin-bottom:20px;
-  text-shadow:0 0 15px cyan;
+.note{
+  font-size:13px;
+  color:#aaa;
+  margin-top:10px;
 }
 
-.price-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
-}
-
-.price-box{
-  background:rgba(255,255,255,0.06);
-  backdrop-filter:blur(12px);
-  padding:25px;
-  border-radius:18px;
-  transition:0.35s;
-  border:1px solid rgba(0,255,255,0.2);
-  cursor:pointer;
-}
-
-.price-box:hover{
-  transform:translateY(-8px) scale(1.05);
-  box-shadow:0 0 25px cyan;
-}
-
-.price{
-  font-size:32px;
-  font-weight:700;
-  color:#00f2fe;
-  margin:10px 0;
-  text-shadow:0 0 12px cyan;
-}
-
-.price-box span{ color:#bbb; font-size:14px; }
-
-.popular{
-  background:linear-gradient(135deg,#00f2fe,#4facfe);
-  color:white;
-  transform:scale(1.05);
-}
-
-.popular .price{
-  color:white;
-  text-shadow:0 0 10px white;
-}
-</style></head>
+</style>
+</head>
 
 <body>
 
 <div class="container">
 
-  <h1>🧼 Carpet Cleaning Service</h1>
-  <p class="subtitle">Deep steam cleaning • stain removal • odour treatment</p>
+<h1>🧼 Carpet Cleaning Service</h1>
+<p class="subtitle">Deep steam cleaning • stain removal • odour treatment</p>
 
-  <!-- ⭐ Carpet Photos -->
-  <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952">
-    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
-    <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac">
+<!-- Gallery -->
+<div class="gallery">
+  <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952">
+  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+  <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac">
+</div>
+
+<!-- Pricing -->
+<div class="pricing-section">
+<h2 class="price-title">💎 Carpet Cleaning Pricing</h2>
+<div class="price-grid">
+
+  <div class="price-box">
+    <h3>Small Carpet</h3>
+    <p class="price">From ₹999*</p>
+    <span>Basic vacuum & shampoo</span>
+    <small class="note">Final price depends on size & condition</small>
   </div>
 
-  <!-- ⭐ Carpet Pricing -->
- <div class="pricing-section">
+  <div class="price-box">
+    <h3>Medium Carpet Deep Wash</h3>
+    <p class="price">From ₹1899*</p>
+    <span>Deep shampoo + stain treatment</span>
+    <small class="note">Ideal for medium-sized living room carpets</small>
+  </div>
 
-  <h2 class="price-title">💎 Carpet Cleaning Pricing</h2>
-
-  <div class="price-grid">
-
-    <div class="price-box">
-      <h3>Small Carpet</h3>
-      <p class="price">₹299</p>
-      <span>Basic vacuum & shampoo</span>
-    </div>
-
-    <div class="price-box popular">
-      <h3>Medium Carpet</h3>
-      <p class="price">₹499</p>
-      <span>Deep steam cleaning ⭐</span>
-    </div>
-
-    <div class="price-box">
-      <h3>Large Carpet</h3>
-      <p class="price">₹799</p>
-      <span>Heavy stain treatment</span>
-    </div>
-
-    <div class="price-box">
-      <h3>Premium Sanitization</h3>
-      <p class="price">₹999</p>
-      <span>Anti-bacterial + deodorizing</span>
-    </div>
-
+  <div class="price-box">
+    <div class="popular-badge">MOST BOOKED</div>
+    <h3>Premium Sanitization</h3>
+    <p class="price">From ₹2999*</p>
+    <span>Anti-bacterial + deodorizing treatment</span>
+    <small class="note">Includes deep steam extraction</small>
   </div>
 
 </div>
 
-  <!-- ⭐ Guidance -->
-  <div class="guide">
-    <h2>📋 Service Guidance</h2>
-    <ul>
-      <li>✔ Vacuum pre-cleaning done before deep wash</li>
-      <li>✔ Steam extraction removes dust mites & bacteria</li>
-      <li>✔ Drying time ranges from 2–4 hours</li>
-      <li>✔ Eco-friendly chemicals safe for kids & pets</li>
-      <li>✔ Best recommended every 6 months</li>
-    </ul>
-  </div>
+</div>
 
-  <!-- ⭐ Reviews -->
-  <div class="reviews">
-    <h2>⭐ Customer Reviews</h2>
+<!-- Guide -->
+<div class="guide">
+<h2>📋 Service Guidance</h2>
+<ul>
+<li>✔ Vacuum pre-cleaning before deep wash</li>
+<li>✔ Steam extraction removes dust mites & bacteria</li>
+<li>✔ Drying time: 2–4 hours</li>
+<li>✔ Eco-friendly chemicals safe for kids & pets</li>
+<li>✔ Recommended every 6 months</li>
+</ul>
+</div>
 
-    <div class="review">
-      <h4>Rahul ⭐⭐⭐⭐⭐</h4>
-      <p>My old carpet looks brand new after steam cleaning.</p>
-    </div>
+<!-- Reviews -->
+<div class="review">
+<h2>⭐ Customer Reviews</h2>
 
-    <div class="review">
-      <h4>Anjali ⭐⭐⭐⭐</h4>
-      <p>Pet smell completely removed. Very satisfied.</p>
-    </div>
+<h4>Rahul ⭐⭐⭐⭐⭐</h4>
+<p>My old carpet looks brand new after steam cleaning.</p>
 
-    <div class="review">
-      <h4>Kiran ⭐⭐⭐⭐⭐</h4>
-      <p>Professional machine cleaning and fast drying.</p>
-    </div>
-  </div>
+<h4>Anjali ⭐⭐⭐⭐</h4>
+<p>Pet smell completely removed. Very satisfied.</p>
 
-  <button onclick="location.href='index.html'">⬅ Back</button>
+<h4>Kiran ⭐⭐⭐⭐⭐</h4>
+<p>Professional machine cleaning and fast drying.</p>
+</div>
+
+<button onclick="location.href='index.html'">⬅ Back</button>
 
 </div>
 
