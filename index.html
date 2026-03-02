@@ -262,23 +262,6 @@
       align-items: center;
       gap: 1.5rem;
     }
-    /* ===== MOBILE FIX ===== */
-@media (max-width: 768px) {
-.quote-box {
-    display: flex;
-    flex-direction: column;   /* stack vertically */
-    gap: 15px;                /* space between buttons */
-    align-items: center;
-  }
-
-  .quote-box a,
-  .quote-btn {
-    width: 90%;               /* full width button */
-    max-width: 320px;
-    text-align: center;
-  }
-
-}
 
     .call-pill {
       display: flex;
@@ -646,46 +629,283 @@
       .about-postcard-grid, .contact-postcard-grid { grid-template-columns: 1fr; }
       .footer-postcards { grid-template-columns: repeat(2,1fr); }
     }
+    
+    /* ===== FIXED MOBILE BUTTON STYLES ===== */
     @media (max-width: 700px) {
       .nav-links { display: none; }
       .nav-right { gap: 0.5rem; }
       .call-pill .phone-number { font-size: 1rem; }
       .footer-postcards { grid-template-columns: 1fr; }
       .hero-postcard h1 { font-size: 2.5rem; }
+      
+      /* Fix for hero section buttons */
+      .hero-postcard {
+        padding: 2rem 1.5rem;
+      }
+      
+      .hero-postcard > div:last-child {
+        flex-direction: column !important;
+        gap: 1rem !important;
+        width: 100%;
+      }
+      
+      .glow-btn {
+        width: 100% !important;
+        text-align: center;
+        padding: 15px 20px !important;
+        font-size: 16px !important;
+        display: block !important;
+      }
+      
+      .quote-wrapper {
+        width: 100%;
+        display: block !important;
+      }
+      
+      .quote-wrapper a {
+        width: 100%;
+        display: block !important;
+      }
+      
+      .btn-cont {
+        width: 100%;
+        display: block !important;
+      }
+      
+      .btn-cont a {
+        width: 100%;
+        display: block !important;
+        text-align: center;
+      }
+      
+      /* Fix for any inline styles */
+      [style*="display:flex"] {
+        flex-wrap: wrap;
+      }
     }
+    
     .glow-btn{
-  position: relative;
-  padding: 15px 30px;
-  font-size: 16px;
-  font-weight: 600;
-  color: white;
-  background: linear-gradient(135deg,hsl(221, 100%, 50%),#4facfe);
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  overflow: hidden;
-  transition: 0.4s ease;
-  letter-spacing: 1px;
+      position: relative;
+      padding: 15px 30px;
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+      background: linear-gradient(135deg,hsl(221, 100%, 50%),#4facfe);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      overflow: hidden;
+      transition: 0.4s ease;
+      letter-spacing: 1px;
       width:85%;
-}
+    }
 
-/* ⭐ Glow shadow */
-.glow-btn:hover{
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 
-    0 0 15px hsl(212, 100%, 50%),
-    0 0 30px #7bfe00,
-    0 0 60px #4facfe;
-}
+    /* ⭐ Glow shadow */
+    .glow-btn:hover{
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 
+        0 0 15px hsl(212, 100%, 50%),
+        0 0 30px #7bfe00,
+        0 0 60px #4facfe;
+    }
 
-/* ⭐ Animated glowing border */
+    /* ⭐ Smooth gradient movement */
+    @keyframes glowing{
+      0%{background-position:0 0;}
+      50%{background-position:300% 0;}
+      100%{background-position:0 0;}
+    }
+    
+    /* ⭐ QUOTE BUTTON */
+    .quote-wrapper{
+      position:relative;
+      display:inline-block;
+    }
 
-/* ⭐ Smooth gradient movement */
-@keyframes glowing{
-  0%{background-position:0 0;}
-  50%{background-position:300% 0;}
-  100%{background-position:0 0;}
-}
+    .quote-btn{
+      padding:14px 30px;
+      border-radius:30px;
+      border:none;
+      cursor:pointer;
+      background:linear-gradient(135deg,#00f2fe,#4facfe);
+      color:white;
+      font-size:16px;
+      transition:0.3s;
+    }
+
+    .quote-btn:hover{
+      transform:scale(1.1);
+      box-shadow:0 0 20px cyan,0 0 40px #00f2fe;
+    }
+
+    /* ⭐ Hover Preview */
+    .quote-preview{
+      position:absolute;
+      bottom:120%;
+      left:50%;
+      transform:translateX(-50%);
+      background:rgba(0,0,0,0.85);
+      padding:15px;
+      border-radius:15px;
+      width:220px;
+      font-size:13px;
+      opacity:0;
+      visibility:hidden;
+      transition:0.3s;
+      box-shadow:0 0 20px cyan;
+    }
+
+    .quote-wrapper:hover .quote-preview{
+      opacity:1;
+      visibility:visible;
+    }
+
+    .quote-preview ul{
+      padding-left:15px;
+      text-align:left;
+    }
+
+    /* ⭐ POPUP */
+    .quote-popup{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.75);
+      display:none;
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+    }
+
+    .quote-box{
+      background:rgba(255,255,255,0.08);
+      backdrop-filter:blur(15px);
+      padding:30px;
+      width:90%;
+      max-width:400px;
+      border-radius:20px;
+      text-align:center;
+      animation:fadeIn 0.4s ease;
+    }
+
+    .step{display:none;}
+    .step.active{display:block;}
+
+    .quote-box input,
+    .quote-box select{
+      width:100%;
+      padding:10px;
+      margin:10px 0;
+      border-radius:10px;
+      border:none;
+    }
+
+    .close-btn{
+      float:right;
+      cursor:pointer;
+    }
+
+    /* ⭐ Progress Bar */
+    .progress-bar{
+      height:5px;
+      background:#333;
+      margin-bottom:15px;
+      border-radius:10px;
+      overflow:hidden;
+    }
+
+    #progress{
+      height:5px;
+      width:25%;
+      background:cyan;
+      transition:0.3s;
+    }
+
+    /* ⭐ Mobile */
+    @media(max-width:768px){
+      .quote-box{
+        width:95%;
+      }
+    }
+    
+    /* Make wrapper behave like normal button */
+    .quote-wrapper.same-line{
+      display:inline-block;
+      position:relative;
+      vertical-align:middle;
+    }
+
+    /* If buttons are inside flex container */
+    .button-group{
+      display:flex;
+      gap:15px;
+      align-items:center;
+      justify-content:center;
+    }
+    
+    /* ⭐ AI Chatbox Container */
+    .ai-chatbox{
+      position:fixed;
+      bottom:100px;
+      right:25px;
+      width:320px;
+      max-height:450px;
+      background:rgba(0,0,0,0.92);
+      backdrop-filter:blur(15px);
+      border-radius:20px;
+      display:none;
+      flex-direction:column;
+      overflow:hidden;
+      box-shadow:0 0 25px cyan;
+      z-index:9999;
+      animation:fadeIn 0.3s ease;
+    }
+
+    /* Header */
+    .ai-header{
+      background:linear-gradient(135deg,#00f2fe,#4facfe);
+      padding:12px;
+      color:white;
+      font-weight:bold;
+      display:flex;
+      justify-content:space-between;
+    }
+
+    /* Body */
+    .ai-body{
+      padding:15px;
+      overflow-y:auto;
+      font-size:14px;
+      color:white;
+    }
+
+    .ai-bot{
+      background:#222;
+      padding:10px;
+      border-radius:12px;
+      margin-bottom:10px;
+    }
+
+    /* Option Buttons */
+    .ai-options button{
+      width:100%;
+      margin:5px 0;
+      padding:8px;
+      border:none;
+      border-radius:12px;
+      cursor:pointer;
+      background:linear-gradient(135deg,#00f2fe,#4facfe);
+      color:black;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .ai-options button:hover{
+      transform:scale(1.05);
+    }
+    
+    .btn-cont {
+      display: inline-block;
+    }
   </style>
 </head>
 <body>
@@ -1418,6 +1638,7 @@ function sendToWhatsApp(event) {
 </body>
 
 </html>
+
 
 
 
