@@ -110,15 +110,15 @@ h1{
   margin-bottom:15px;
 }
 
-/* ⭐ Buttons inside cards */
+/* ⭐ Book Now Button */
 .card-btn{
-  padding:8px 18px;
-  border:none;
-  border-radius:20px;
+  padding:10px 20px;
+  border-radius:25px;
   background:linear-gradient(135deg,#00f2fe,#4facfe);
   color:white;
-  cursor:pointer;
   font-size:14px;
+  text-decoration:none;
+  display:inline-block;
   transition:0.3s;
 }
 
@@ -131,18 +131,35 @@ h1{
 .main-btn{
   margin-top:30px;
   padding:12px 28px;
-  border:none;
   border-radius:30px;
   background: linear-gradient(135deg,#00f2fe,#4facfe);
   color:white;
   font-size:16px;
-  cursor:pointer;
+  text-decoration:none;
+  display:inline-block;
   transition:0.3s;
 }
 
 .main-btn:hover{
   transform:scale(1.1);
   box-shadow:0 0 20px cyan;
+}
+
+/* ⭐ Guidance */
+.guide{
+  margin-top:50px;
+  text-align:left;
+  max-width:800px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.guide h2{
+  text-align:center;
+}
+
+.guide ul{
+  line-height:1.8;
 }
 
 </style>
@@ -166,7 +183,7 @@ h1{
 <div class="pricing-section">
 
 <h2 class="price-title">💎 Empty House Cleaning Pricing</h2>
-<p class="note">*Final pricing may vary depending on house size, condition, and service requirements.</p>
+<p class="note">*Final pricing may vary depending on house size, condition & service requirements.</p>
 
 <div class="price-grid">
 
@@ -174,28 +191,28 @@ h1{
   <h3>1 BHK</h3>
   <p class="price">Starts from ₹2,800</p>
   <span>Complete deep cleaning</span>
-  <button class="card-btn">Book Now</button>
+  <a href="tel:9900099867" class="card-btn">📞 Book Now</a>
 </div>
 
 <div class="price-box">
   <h3>2 BHK</h3>
   <p class="price">Starts from ₹3,800</p>
   <span>Full house sanitization</span>
-  <button class="card-btn">Book Now</button>
+  <a href="tel:9900099867" class="card-btn">📞 Book Now</a>
 </div>
 
 <div class="price-box">
   <h3>3 BHK</h3>
   <p class="price">Starts from ₹5,000</p>
   <span>All rooms + kitchen + bathrooms</span>
-  <button class="card-btn">Book Now</button>
+  <a href="tel:9900099867" class="card-btn">📞 Book Now</a>
 </div>
 
 <div class="price-box">
   <h3>4+ BHK</h3>
   <p class="price">Starts from ₹6,000+</p>
   <span>Large property premium cleaning</span>
-  <button class="card-btn">Book Now</button>
+  <a href="tel:9900099867" class="card-btn">📞 Book Now</a>
 </div>
 
 </div>
@@ -214,11 +231,12 @@ h1{
 </ul>
 </div>
 
-<!-- ⭐ Contact Buttons -->
-<button class="main-btn">📞 Call Now</button>
-<button class="main-btn">💬 WhatsApp</button>
+<!-- ⭐ Bottom Call Buttons -->
 <br>
-<button class="main-btn" onclick="location.href='index.html'">⬅ Back</button>
+<a href="tel:9900099867" class="main-btn">📞 Call Now</a>
+<a href="https://wa.me/919900099867" class="main-btn">💬 WhatsApp</a>
+<br><br>
+<a href="index.html" class="main-btn">⬅ Back</a>
 
 </div>
 
